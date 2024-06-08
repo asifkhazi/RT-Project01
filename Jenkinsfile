@@ -24,7 +24,7 @@ pipeline {
 			environment { SCANNER_HOME = tool 'sonar-scanner'}
       			steps {
 				withSonarQubeEnv('SanrQubeServer') {
-    					sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=sonarqube-example"
+    					sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=sonarqube-example"
 				}
             		}
    	 	}
