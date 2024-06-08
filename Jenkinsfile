@@ -21,6 +21,7 @@ pipeline {
 		      	agent {
                 		label 'new-node'
             		}
+			environment { SCANNER_HOME = tool 'sonar-scanner'}
       			steps {
 				withSonarQubeEnv(credentialsId: 'sonar-token') {
     					sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=sonarqube-example"
